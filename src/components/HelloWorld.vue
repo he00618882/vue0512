@@ -14,7 +14,7 @@ import tree from  "./tree"
 
 export default {
   name: 'HelloWorld',
-  components: { root ,tree},
+  components: { root ,tree}, 
   data () {
     return {
       tree: {
