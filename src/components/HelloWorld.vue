@@ -1,9 +1,8 @@
 <template>
   <span class="HelloWorld">
-    EEEE
-        <ve-histogram style="width:50%" v-if="$store.state.selectData =='fun1-1'" :data="doneTodosCount"></ve-histogram>
-        <ve-pie style="width:50%" v-if="$store.state.selectData =='func1-2'" :data="doneTodosCount"></ve-pie>
-        <ve-funnel style="width:50%" v-if="$store.state.selectData =='func2-1'" :data="doneTodosCount"></ve-funnel>
+        <ve-histogram  v-if="$store.state.selectData =='fun1-1'" :data="doneTodosCount"></ve-histogram>
+        <ve-pie  v-if="$store.state.selectData =='func1-2'" :data="doneTodosCount"></ve-pie>
+        <ve-funnel  v-if="$store.state.selectData =='func2-1'" :data="doneTodosCount"></ve-funnel>
   </span>
 </template>
 

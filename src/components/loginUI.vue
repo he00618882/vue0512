@@ -28,6 +28,8 @@ export default {
   data(){
         return {
             type:'Login',
+            userName:"",
+            password:""
         }
   },
   computed: {
@@ -35,6 +37,7 @@ export default {
   },
   methods:{
       doLogin(){
+          this.$store.state.userName = this.userName;
           this.$router.push({ path: 'home' })
       }
   },
