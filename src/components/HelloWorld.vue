@@ -1,8 +1,15 @@
 <template>
   <span class="HelloWorld">
-        <ve-histogram  v-if="$store.state.selectData =='fun1-1'" :data="doneTodosCount"></ve-histogram>
-        <ve-pie  v-if="$store.state.selectData =='func1-2'" :data="doneTodosCount"></ve-pie>
-        <ve-funnel  v-if="$store.state.selectData =='func2-1'" :data="doneTodosCount"></ve-funnel>
+    <br>
+        <input type="radio" id="histogram" value="histogram" v-model="$store.state.veType">
+        <label for="histogram">長條圖</label>
+        <input type="radio" id="pie" value="pie" v-model="$store.state.veType">
+        <label for="pie">圓餅圖</label>
+        <input type="radio" id="line" value="line" v-model="$store.state.veType">
+        <label for="line">折線圖</label>
+        <ve-histogram  v-if="$store.state.veType =='histogram'" :data="doneTodosCount"></ve-histogram>
+        <ve-pie  v-if="$store.state.veType =='pie'" :data="doneTodosCount"></ve-pie>
+        <ve-line  v-if="$store.state.veType =='line'" :data="doneTodosCount"></ve-line>
   </span>
 </template>
 
@@ -16,37 +23,14 @@ export default {
   components: { root ,tree}, 
   data () {
     return {
-      tree: {
-       name: "目錄",
-       Lv:'1',
-       node: [
-         {
-           name: "基本圖表",
-           Lv:'1',
-           node: [
-             {
-               name: "fun1-1",
-               Lv:'1',
-             },
-             {
-               name: "func1-2",
-               Lv:'2',
-             },
-           ],
-         },
-         {
-           name: "進階圖表",
-           Lv:'2',
-           node: [
-             {
-               name: "func2-1",
-               Lv:'3',
-             },
-           ],
-         },
-       ],
-     },
-
+      selectData : this.$store.state.selectData
+    }
+  },
+  watch:{
+    selectData:{
+      doneTodosCount :function(){
+        console.log("更新個")
+      }
     }
   },
   computed: {
