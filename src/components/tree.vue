@@ -1,5 +1,5 @@
 <template>
-    <li @click.stop="toggle(treeData.name)" v-if="$store.state.Lv >= treeData.Lv"  :class="treeData.name=='root'?'?root':''">
+    <li @click.stop="toggle(treeData.name)" v-if="$store.state.Lv >= treeData.Lv || $store.state.userName=='admin'"  :class="treeData.name=='root'?'?root':''">
       {{treeData.name}}
       <ul v-show="open" v-if="treeData.node && treeData.node.length" >
         <tree v-for="value , index in treeData.node" :key="index" :treeData="value"></tree>

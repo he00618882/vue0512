@@ -8,6 +8,14 @@ const index = new Vuex.Store({
     state: {
       user:{
         admin:5,
+        "很不U":2,
+        open:1,
+        "阿梅":2,
+        peko:1,
+        whoiswho:3,
+        AAAA:2,
+        BBBB:2,
+        CCCC:1,
       },
       userName:"",
       Lv:'3',
@@ -478,8 +486,40 @@ const index = new Vuex.Store({
     },
     getters: {
       getChartData: (state, getters) => {
+          if(state.selectData != 'User permissions'){
+            return state[state.selectData] ;
+          }else{
+            let temp = {
+              columns: ['權限等級', '人數'],
+              rows: [
+                {'權限等級':1,'人數':0},
+                {'權限等級':2,'人數':0},
+                {'權限等級':3,'人數':0},
+                {'權限等級':4,'人數':0},
+                {'權限等級':5,'人數':0},
+              ]
+            }
 
-          return state[state.selectData] ;
+            let data={};
+            
+            Object.keys(state.user).forEach(key => {
+              if(data[state.user[key]]){
+                data[state.user[key]] += 1
+              }else{
+                data = Object.assign({[state.user[key]]:1},data)
+              }
+            })
+            console.log(data);
+            temp.rows[0].人數 = data['1'];
+            temp.rows[1].人數 = data['2'];
+            temp.rows[2].人數 = data['3'];
+            temp.rows[3].人數 = data['4'];
+            temp.rows[4].人數 = data['5'];
+
+
+            return temp ;
+          }
+
       },
       
   }

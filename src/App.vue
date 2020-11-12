@@ -277,11 +277,11 @@ export default {
          },
          {
            name: "最高權限圖表",
-           Lv:'3',
+           Lv:'99999999999999999999',
            node: [
              {
-               name: "exchange rate",
-               Lv:'3',
+               name: "User permissions",
+               Lv:'999999999999999999',
              },
            ],
          },

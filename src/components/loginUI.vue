@@ -76,6 +76,7 @@ export default {
             this.$store.state.user = Object.assign({[this.userName]:this.password}, this.$store.state.user);
             this.password ="";
             this.type ="Login";
+            alert('註冊成功了 很遺憾的跟你說你沒抽到~  不過快去領S級火槍兵阿')
           }else{
             alert('不是阿!你註冊過了快登入領火槍兵阿')
           }
