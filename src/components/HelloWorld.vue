@@ -1,15 +1,13 @@
 <template>
   <span class="HelloWorld">
     <br>
-        <input type="radio" id="histogram" value="histogram" v-model="$store.state.veType">
-        <label for="histogram">長條圖</label>
-        <input type="radio" id="pie" value="pie" v-model="$store.state.veType">
-        <label for="pie">圓餅圖</label>
-        <input type="radio" id="line" value="line" v-model="$store.state.veType">
-        <label for="line">折線圖</label>
-        <ve-histogram  v-if="$store.state.veType =='histogram'" :data="doneTodosCount"></ve-histogram>
+    <div class="card">
+      蘇斐虹 老師<br>
+      教師節快樂◝(⁰▿⁰)◜
+    </div>
+        <!-- <ve-histogram  v-if="$store.state.veType =='histogram'" :data="doneTodosCount"></ve-histogram>
         <ve-pie  v-if="$store.state.veType =='pie'" :data="doneTodosCount"></ve-pie>
-        <ve-line  v-if="$store.state.veType =='line'" :data="doneTodosCount"></ve-line>
+        <ve-line  v-if="$store.state.veType =='line'" :data="doneTodosCount"></ve-line> -->
   </span>
 </template>
 

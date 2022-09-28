@@ -20,15 +20,15 @@
                 登入
                 <input type="text" class="forminput" placeholder="你的名子/帳號" v-model="userName">
                 <input type="text" class="forminput" placeholder="交出你的密碼" v-model="password">
-                <button class="formbutton" @click="doLogin">登入</button>
-                <button class="formbutton" @click="type=''">註冊</button>
+                <button class="formbutton" @click.prevent="doLogin">登入</button>
+                <button class="formbutton" @click.prevent="type=''">註冊</button>
             </form>
             <form class="form" v-if="type != 'Login'">
                 註冊
                 <input type="text" class="forminput" placeholder="你的名子" v-model="userName">
                 <input type="text" class="forminput" placeholder="你可以不用打我也不想記\(·w·)/" v-model="password">
-                <button class="formbutton" @click="doRegistered">註冊此帳號</button>
-                <button class="formbutton" @click="type='Login'">返回</button>
+                <button class="formbutton" @click.prevent="doRegistered">註冊此帳號</button>
+                <button class="formbutton" @click.prevent="type='Login'">返回</button>
             </form>
         </div>
 
@@ -50,6 +50,11 @@ export default {
   },
   computed: {
 
+  },
+  mounted(){
+    this.$store.state.Lv = "3"
+    this.$store.state.userName = "你誰!!";
+    this.$router.push({ path: 'home' })
   },
   methods:{
       doLogin(){
